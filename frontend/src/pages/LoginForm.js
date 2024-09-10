@@ -53,8 +53,6 @@ const LoginForm = () => {
         <button type="submit">Logar</button>
         {message && <p className="message">{message}</p>}
         <div className="social">
-          <div className="go"><i className="fab fa-google"></i> Google</div>
-          <div className="fb"><i className="fab fa-facebook"></i> Facebook</div>
         </div>
       </form>
     </div>

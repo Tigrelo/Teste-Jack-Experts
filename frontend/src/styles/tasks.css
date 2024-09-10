@@ -1,0 +1,54 @@
+/* Estilo específico para a página de tarefas */
+
+.task-page-container {
+    background-color: #121212; /* Cor de fundo diferente */
+    color: #e0e0e0; /* Cor do texto diferente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .task-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #f39c12; /* Cor do cabeçalho */
+  }
+  
+  .task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .task-item h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .add-task-button {
+    background-color: #27ae60; /* Cor de fundo do botão */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-task-button:hover {
+    background-color: #2ecc71; /* Cor do botão ao passar o mouse */
+  }
+  

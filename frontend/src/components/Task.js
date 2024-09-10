@@ -35,8 +35,7 @@ const Task = ({ task, onUpdateTask, onDeleteTask }) => {
         </div>
       ) : (
         <div>
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
+         
           <button onClick={() => setIsEditing(true)}>Edit</button>
           <button onClick={() => onDeleteTask(task.id)}>Delete</button>
         </div>

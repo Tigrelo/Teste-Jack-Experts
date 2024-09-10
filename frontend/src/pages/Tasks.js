@@ -1,8 +1,7 @@
-// src/pages/Tasks.js
 import React, { useState } from 'react';
 import Task from '../components/Task';
 import TaskForm from '../components/TaskForm';
-
+import '../styles/tasks.css'; // Importe o arquivo de estilos específico
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([
@@ -24,15 +23,15 @@ const Tasks = () => {
   };
 
   return (
-    <div>
-      <h2>Tasks</h2>
+    <div className="task-page-container">
+      <h2 className="task-header">Tasks</h2>
       <TaskForm 
         selectedTask={selectedTask}
         setSelectedTask={setSelectedTask}
         onAddTask={handleAddTask}
         onUpdateTask={handleUpdateTask}
       />
-      <ul>
+      <ul className="task-list">
         {tasks.map(task => (
           <Task
             key={task.id}

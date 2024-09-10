@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginForm from './pages/LoginForm'; // Importe o LoginForm
 import Register from './pages/Register';
 import Tasks from './pages/Tasks';
-import './styles/global.css'; 
+import './styles/combined.css';
 
 function App() {
   return (
