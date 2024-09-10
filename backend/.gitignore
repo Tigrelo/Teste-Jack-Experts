@@ -1,0 +1,6 @@
+# Ignorar arquivos específicos
+*.log
+*.tmp
+
+# Não ignorar o diretório src
+!src/

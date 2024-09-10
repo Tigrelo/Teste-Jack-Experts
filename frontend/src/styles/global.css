@@ -1,0 +1,80 @@
+/* src/styles/global.css */
+
+/* Estilo de fundo da página para o formulário de tarefas */
+body {
+  background-color: #f0f2f5;
+}
+
+/* Estilo do contêiner do formulário de tarefas */
+.task-form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título do formulário de tarefas */
+.task-form-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+/* Estilo dos campos do formulário de tarefas */
+.task-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form-container label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555555;
+}
+
+.task-form-container input,
+.task-form-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.task-form-container input:focus,
+.task-form-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo do botão de envio do formulário de tarefas */
+.task-form-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo das mensagens de erro do formulário de tarefas (se houver) */
+.task-form-container .message {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff4d4d; /* Cor vermelha para mensagens de erro */
+  text-align: center;
+}
