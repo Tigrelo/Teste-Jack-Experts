@@ -10,9 +10,13 @@ const instance = axios.create({
 const setAuthHeader = () => {
   const token = localStorage.getItem('token');
   if (token) {
+
     instance.defaults.headers.common['Authorization'] = token;
   } else {
     delete instance.defaults.headers.common['Authorization'];
+
+    instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
   }
 };
 
@@ -24,7 +28,9 @@ instance.interceptors.response.use(
   response => response,
   async error => {
     if (error.response && error.response.status === 401) {
+
       // Lidar com a expiração do token e tentar renová-lo, se necessário
+
     }
     return Promise.reject(error);
   }

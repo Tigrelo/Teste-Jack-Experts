@@ -1,3 +1,4 @@
+// backend/routes/tasks.js
 const express = require('express');
 const router = express.Router();
 const Task = require('../models/Task');
@@ -14,11 +15,16 @@ router.post('/',
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Erros de validação:', errors.array()); // Log para depuração
       return res.status(400).json({ errors: errors.array() });
     }
 
     const { title, description, completed = false } = req.body;
     try {
+      // Verifique o usuário
+      console.log('Usuário autenticado:', req.user);
+
+      // Criação da tarefa
       const task = await Task.create({
         title,
         description,
@@ -27,7 +33,7 @@ router.post('/',
       });
       res.status(201).json(task);
     } catch (error) {
-      console.error('Erro ao criar task:', error);
+      console.error('Erro ao criar task:', error); // Log para depuração
       res.status(500).json({ error: 'Erro ao criar task' });
     }
   }

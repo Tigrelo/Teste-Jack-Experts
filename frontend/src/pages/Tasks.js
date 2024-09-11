@@ -1,66 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import Task from '../components/Task';  // Verifique se o caminho está correto
-import TaskForm from '../components/TaskForm';  // Verifique se o caminho está correto
+import React, { useState } from 'react';
+import Task from '../components/Task';
+import TaskForm from '../components/TaskForm';
+import '../styles/tasks.css'; // Importe o arquivo de estilos específico
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    { id: 1, title: 'Test Task', description: 'This is a test task' }
+  ]); // Dados mock para teste
+  const [selectedTask, setSelectedTask] = useState(null);
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await fetch('http://localhost:5000/tasks', {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-      });
-      const data = await response.json();
-      setTasks(data);
-    };
-    fetchTasks();
-  }, []);
-
-  const handleAddTask = async (task) => {
-    const response = await fetch('http://localhost:5000/tasks', {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      },
-      body: JSON.stringify(task),
-    });
-    const newTask = await response.json();
-    setTasks([...tasks, newTask]);
+  const handleAddTask = (task) => {
+    setTasks([...tasks, { ...task, id: tasks.length + 1 }]);
   };
 
-  const handleUpdateTask = async (updatedTask) => {
-    const response = await fetch(`http://localhost:5000/tasks/${updatedTask.id}`, {
-      method: 'PUT',
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      },
-      body: JSON.stringify(updatedTask),
-    });
-    const task = await response.json();
-    setTasks(tasks.map(t => t.id === task.id ? task : t));
+  const handleUpdateTask = (updatedTask) => {
+    setTasks(tasks.map(t => t.id === updatedTask.id ? updatedTask : t));
+    setSelectedTask(null);
   };
 
-  const handleDeleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: 'DELETE',
-      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-    });
+  const handleDeleteTask = (id) => {
     setTasks(tasks.filter(t => t.id !== id));
   };
 
   return (
-    <div>
-      <h2>Tasks</h2>
-      <TaskForm onAddTask={handleAddTask} />
-      <ul>
+    <div className="task-page-container">
+      <h2 className="task-header">Tasks</h2>
+      <TaskForm 
+        selectedTask={selectedTask}
+        setSelectedTask={setSelectedTask}
+        onAddTask={handleAddTask}
+        onUpdateTask={handleUpdateTask}
+      />
+      <ul className="task-list">
         {tasks.map(task => (
           <Task
             key={task.id}
             task={task}
             onUpdateTask={handleUpdateTask}
             onDeleteTask={handleDeleteTask}
+            setSelectedTask={setSelectedTask}
           />
         ))}
       </ul>

@@ -9,8 +9,11 @@ const SomeComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+
         // Substitua '/api/protected/some-endpoint' pelo endpoint real da sua API
         const response = await axios.get('/api/protected/some-endpoint');
+
+
         setData(response.data);
       } catch (err) {
         setError(err.message);
@@ -28,4 +31,7 @@ const SomeComponent = () => {
   );
 };
 
+
 export default SomeComponent;
+
+

@@ -11,6 +11,8 @@
     "react-router-dom": "^6.26.1",
     "react-scripts": "^5.0.1",
     "react-toastify": "^10.0.5",
+ 
+
     "web-vitals": "^4.2.3"
   },
   "scripts": {
@@ -39,6 +41,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+
   },
   "proxy": "http://localhost:5000"
-}
+
+  }
+
+
